@@ -103,11 +103,13 @@
     }
 }
 // Implementation of new button
-// This version will crash when the new button is selected!!
 - (IBAction)addNewItem:(id)sender
 {
-    // Make a new index path for the 0th section, last row
-    int lastRow = [[self tableView] numberOfRowsInSection:0];
+    // Create a new BNRItem and add it to the store
+    BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
+    // Figure out where that item is in the array
+    int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+    
     NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
     // Insert this new row into the table.
     [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
