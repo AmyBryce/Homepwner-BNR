@@ -60,6 +60,31 @@
     [[cell textLabel] setText:[p description]];
     return cell;
 }
+
+- (UIView *)headerView
+{
+    // If we haven't loaded the headerView yet...
+    if (!headerView) {
+        // Load HeaderView.xib
+        // Notice that you passed self as the owner of the XIB file
+        // This places the instance of ItemsViewController in the File's Owner hole of the XIB file
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+    }
+    return headerView;
+}
+
+// These two methods are listed as optional in the protocol
+// but if you want a header view, you must implement both
+- (UIView *)tableView:(UITableView *)tv viewForHeaderInSection:(NSInteger)sec
+{
+    return [self headerView];
+}
+- (CGFloat)tableView:(UITableView *)tv heightForHeaderInSection:(NSInteger)sec
+{
+    // The height of the header view should be determined from the height of the
+    // view in the XIB file
+    return [[self headerView] bounds].size.height;
+}
     
 
 
