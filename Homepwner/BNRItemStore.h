@@ -22,6 +22,10 @@
 // Remove BNRItem from BNRItemStore
 - (void)removeItem:(BNRItem *)p;
 
+// Method to change the order of the items
+- (void)moveItemAtIndex:(int)from
+                toIndex:(int)to;
+
 - (NSArray *)allItems;
 - (BNRItem *)createItem;
 
