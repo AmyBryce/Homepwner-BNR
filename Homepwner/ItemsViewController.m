@@ -86,7 +86,7 @@
     return [[self headerView] bounds].size.height;
 }
 
-// Implementation of editing buttons
+// Implementation of edit button
 - (IBAction)toggleEditingMode:(id)sender
 {
     // If we are currently in editing mode...
@@ -102,7 +102,17 @@
         [self setEditing:YES animated:YES];
     }
 }
-
+// Implementation of new button
+// This version will crash when the new button is selected!!
+- (IBAction)addNewItem:(id)sender
+{
+    // Make a new index path for the 0th section, last row
+    int lastRow = [[self tableView] numberOfRowsInSection:0];
+    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    // Insert this new row into the table.
+    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
+                            withRowAnimation:UITableViewRowAnimationTop];
+}
 
 @end
 
