@@ -19,6 +19,9 @@
 // BNRItemStore is a singleton 
 + (BNRItemStore *)sharedStore;
 
+// Remove BNRItem from BNRItemStore
+- (void)removeItem:(BNRItem *)p;
+
 - (NSArray *)allItems;
 - (BNRItem *)createItem;
 

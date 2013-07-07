@@ -47,5 +47,10 @@
     return p;
 }
 
+// Remove BNRItem from BNRItemStore
+- (void)removeItem:(BNRItem *)p
+{
+    [allItems removeObjectIdenticalTo:p];
+}
 
 @end
