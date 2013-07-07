@@ -17,10 +17,7 @@
     // Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        // Add 5 random items to the BNRItemStore
-        for (int i = 0; i < 5; i++) {
-            [[BNRItemStore sharedStore] createItem];
-        }
+        // Removed code that added 5 random items to the BNRItemStore
     }
     return self;
 }
